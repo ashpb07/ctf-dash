@@ -33,7 +33,7 @@ tailwind.config = {
     },
 }
 
-// Matrix background effect
+
 const canvas = document.createElement('canvas');
 const ctx = canvas.getContext('2d');
 document.getElementById('matrixCanvas').appendChild(canvas);
@@ -72,13 +72,13 @@ function drawMatrix() {
 
 setInterval(drawMatrix, 35);
 
-// Network visualization
+
 const networkCanvas = document.getElementById('networkCanvas');
 let nodes = [];
 let packets = [];
 
 function createNetworkVisualization() {
-    // Create network nodes
+
     for (let i = 0; i < 15; i++) {
         const node = document.createElement('div');
         node.className = 'network-node';
@@ -88,7 +88,7 @@ function createNetworkVisualization() {
         networkCanvas.appendChild(node);
         nodes.push(node);
         
-        // Create connections between nodes
+  
         if (i > 0) {
             const line = document.createElement('div');
             line.className = 'absolute h-0.5 bg-terminal-green/20';
@@ -99,8 +99,7 @@ function createNetworkVisualization() {
             networkCanvas.appendChild(line);
         }
     }
-    
-    // Create data packets
+
     setInterval(() => {
         if (packets.length < 20) {
             const packet = document.createElement('div');
@@ -110,7 +109,7 @@ function createNetworkVisualization() {
             networkCanvas.appendChild(packet);
             packets.push(packet);
             
-            // Animate packet
+       
             const animation = packet.animate([
                 { transform: 'translate(0, 0)', opacity: 1 },
                 { transform: `translate(${Math.random() * 200 - 100}px, ${Math.random() * 200 - 100}px)`, opacity: 0 }
@@ -127,7 +126,7 @@ function createNetworkVisualization() {
     }, 300);
 }
 
-// Update datetime
+
 function updateDateTime() {
     const now = new Date();
     const datetime = now.toLocaleString();
@@ -137,7 +136,6 @@ function updateDateTime() {
 updateDateTime();
 setInterval(updateDateTime, 1000);
 
-// System initialization sequence
 let initializationStep = 0;
 const initializationSteps = [
     { element: 'encryptionStatus', text: 'ENCRYPTION ACTIVE', delay: 1000 },
@@ -164,9 +162,9 @@ function initializeSystem() {
     }
 }
 
-// Dynamic system updates
+
 function startDynamicUpdates() {
-    // Update resource usage
+  
     setInterval(() => {
         const networkLoad = 30 + Math.random() * 40;
         const systemResources = 20 + Math.random() * 50;
@@ -178,7 +176,7 @@ function startDynamicUpdates() {
         document.getElementById('systemResourcesBar').style.width = `${systemResources}%`;
     }, 2000);
     
-    // Update team data
+ 
     setTimeout(() => {
         document.getElementById('teamPosition').textContent = '#12';
         document.getElementById('teamPoints').textContent = '1850';
@@ -215,7 +213,7 @@ function startDynamicUpdates() {
     }, 3000);
 }
 
-// Interactive terminal
+
 const commands = [
     "scan --network",
     "challenges --list --category all",
@@ -245,13 +243,13 @@ function typeCommand() {
             if (charIndex === currentCommand.length) {
                 isWaiting = true;
                 setTimeout(() => {
-                    // Add command output
+                 
                     const outputLine = document.createElement('div');
                     outputLine.className = 'text-terminal-green-muted ml-6 mb-4';
                     outputLine.textContent = getCommandOutput(currentCommand);
                     terminalOutput.appendChild(outputLine);
                     
-                    // Add new command line
+                 
                     const newLine = document.createElement('div');
                     newLine.className = 'terminal-line mb-2';
                     newLine.innerHTML = `
@@ -261,7 +259,7 @@ function typeCommand() {
                     `;
                     terminalOutput.appendChild(newLine);
                     
-                    // Scroll to bottom
+                   
                     terminalOutput.scrollTop = terminalOutput.scrollHeight;
                     
                     isDeleting = true;
@@ -303,13 +301,13 @@ function getCommandOutput(command) {
     return outputs[command] || "> Command executed successfully.";
 }
 
-// Initialize everything
+
 document.addEventListener('DOMContentLoaded', () => {
     createNetworkVisualization();
     initializeSystem();
     setTimeout(typeCommand, 2000);
     
-    // Handle window resize
+   
     window.addEventListener('resize', function() {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;

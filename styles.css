@@ -97,7 +97,7 @@
     box-shadow: 0 0 8px #00ffff;
 }
 
-/* Tailwind CSS Configuration */
+/* tailwind css configuration */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
