@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+@keyframes scanline {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100vh); }
+}
+
+@keyframes matrix-rain {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100vh); }
+}
+
+@keyframes terminal-scan {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+}
+
+@keyframes glitch {
+    0% { text-shadow: 2px 2px 0px #ff0033, -2px -2px 0px #00ffff; }
+    95% { text-shadow: 2px 2px 0px #ff0033, -2px -2px 0px #00ffff; }
+    96% { text-shadow: -2px -2px 0px #ff0033, 2px 2px 0px #00ffff; }
+    97% { text-shadow: 2px -2px 0px #ff0033, -2px 2px 0px #00ffff; }
+    98% { text-shadow: -2px 2px 0px #ff0033, 2px -2px 0px #00ffff; }
+    99% { text-shadow: 2px 2px 0px #ff0033, -2px -2px 0px #00ffff; }
+    100% { text-shadow: -2px -2px 0px #ff0033, 2px 2px 0px #00ffff; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 5px rgba(0, 255, 0, 0.3); }
+    50% { box-shadow: 0 0 20px rgba(0, 255, 0, 0.7); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes typewriter {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+.terminal-cursor {
+    display: inline-block;
+    width: 8px;
+    height: 18px;
+    background-color: #00ff00;
+    margin-left: 2px;
+    animation: blink 1s infinite;
+}
+
+.terminal-output {
+    max-height: 400px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #00ff00 #0a0a0a;
+}
+
+.terminal-output::-webkit-scrollbar {
+    width: 8px;
+}
+
+.terminal-output::-webkit-scrollbar-track {
+    background: #0a0a0a;
+}
+
+.terminal-output::-webkit-scrollbar-thumb {
+    background-color: #00ff00;
+    border-radius: 4px;
+}
+
+.network-node {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: #00ff00;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #00ff00;
+}
+
+.data-packet {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background-color: #00ffff;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #00ffff;
+}
+
+/* Tailwind CSS Configuration */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        font-family: 'JetBrains Mono', monospace;
+    }
+}
+
+@layer utilities {
+    .text-shadow-lg {
+        text-shadow: 0 0 10px currentColor;
+    }
+}
